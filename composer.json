@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "": "source/"
+        }
+    },
+    "config": {
+        "bin-dir": "binaries/",
+        "optimize-autoloader": true,
+        "vendor-dir": "libraries/"
+    }
+}
