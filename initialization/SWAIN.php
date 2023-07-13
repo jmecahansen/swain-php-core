@@ -1,6 +1,6 @@
 <?php
     /**
-     * BigEngine initialization
+     * SWAIN initialization
      * @author Julio María Meca Hansen <jmecahansen@gmail.com>
      */
 
