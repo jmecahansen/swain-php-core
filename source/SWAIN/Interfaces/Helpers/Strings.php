@@ -105,6 +105,18 @@
         public static function getStrips(string $string, int $limit): array|false;
 
         /**
+         * hyphenates a string
+         * @param string $string the string
+         * @param bool $lowercase whether to convert (or not) the resulting string to lowercase (optional, false by
+         * default)
+         * @return false|string the hyphenated string if successful, false otherwise
+         * @example $output = Strings::hyphenate("foo bar");
+         * @example $output = Strings::hyphenate("foo bar", true);
+         * @author Julio María Meca Hansen <jmecahansen@gmail.com>
+         */
+        public static function hyphenate(string $string, bool $lowercase = false): false|string;
+
+        /**
          * checks if a given string is encoded as base64 or not
          * @param string $string the input string
          * @return bool whether the given string is encoded as base64 or not
