@@ -207,4 +207,13 @@
          * @author Julio María Meca Hansen <jmecahansen@gmail.com>
          */
         public static function unaccent(string $string): string;
-    }
+
+        /**
+         * uncompresses a string (compressed with the ZLIB format)
+         * @param string $string the string
+         * @return false|string the uncompressed string if successful, false otherwise
+         * @example $output = Strings::uncompress($string);
+         * @author Julio María Meca Hansen <jmecahansen@gmail.com>
+         */
+        public static function uncompress(string $string): false|string;
+}
