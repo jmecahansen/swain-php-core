@@ -132,6 +132,15 @@
         public static function isJSON(string $string): bool;
 
         /**
+         * checks if a string is serialized or not
+         * @param string $string the string
+         * @return bool whether the string is serialized or not
+         * @example $result = Strings::isSerialized("foo");
+         * @author Julio María Meca Hansen <jmecahansen@gmail.com>
+         */
+        public static function isSerialized(string $string): bool;
+
+        /**
          * checks whether a given input string is encoded as UTF-8 or not
          * @param string $string the input string we want to check
          * @return bool whether the given input string is encoded as UTF-8 or not

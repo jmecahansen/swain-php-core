@@ -243,6 +243,56 @@
         }
 
         /**
+         * checks if a string is serialized or not
+         * @param string $string the string
+         * @return bool whether the string is serialized or not
+         * @example $result = Strings::isSerialized("foo");
+         * @author Julio María Meca Hansen <jmecahansen@gmail.com>
+         */
+        public static function isSerialized(string $string): bool {
+            $string = trim($string);
+
+            if ($string === "N;") {
+                return true;
+            } elseif (strlen($string) >= 4) {
+                if ($string[1] === ":") {
+                    if (in_array(substr($string, -1), [
+                        ";",
+                        "}"
+                    ], true)) {
+                        if (!empty($token = $string[0])) {
+                            if (in_array($token, [
+                                "s",
+                                "a",
+                                "O"
+                            ], true)) {
+                                if ($token === "s") {
+                                    if (substr($string, -2, 1) === "\"") {
+                                        if (preg_match("/^{$token}:[0-9]+:/s", $string)) {
+                                            return true;
+                                        }
+                                    }
+                                } elseif (preg_match("/^{$token}:[0-9]+:/s", $string)) {
+                                    return true;
+                                }
+                            } elseif (in_array($token, [
+                                "b",
+                                "i",
+                                "d"
+                            ], true)) {
+                                if (preg_match("/^{$token}:[0-9.E-]+;$/", $string)) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /**
          * checks whether a given input string is encoded as UTF-8 or not
          * @param string $string the input string we want to check
          * @return bool whether the given input string is encoded as UTF-8 or not
