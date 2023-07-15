@@ -29,6 +29,15 @@
         public static function compress(string $string, int $level = 9): false|string;
 
         /**
+         * decompresses a string (compressed with the ZLIB format)
+         * @param string $string the string
+         * @return false|string the decompressed string if successful, false otherwise
+         * @example $output = Strings::decompress($string);
+         * @author Julio María Meca Hansen <jmecahansen@gmail.com>
+         */
+        public static function decompress(string $string): false|string;
+
+        /**
          * returns the language in which a given string is written
          * @param string $string the input string
          * @param int $mode the return mode for all available results (optional, the closest match will be returned)
@@ -207,13 +216,4 @@
          * @author Julio María Meca Hansen <jmecahansen@gmail.com>
          */
         public static function unaccent(string $string): string;
-
-        /**
-         * uncompresses a string (compressed with the ZLIB format)
-         * @param string $string the string
-         * @return false|string the uncompressed string if successful, false otherwise
-         * @example $output = Strings::uncompress($string);
-         * @author Julio María Meca Hansen <jmecahansen@gmail.com>
-         */
-        public static function uncompress(string $string): false|string;
 }
