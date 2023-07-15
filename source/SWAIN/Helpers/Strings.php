@@ -40,6 +40,19 @@
         ];
 
         /**
+         * compresses a string (using the ZLIB format)
+         * @param string $string the string
+         * @param int $level the compression level (0-9) (optional, 9 by default)
+         * @return false|string the compressed string if successful, false otherwise
+         * @example $output = Strings::getCompressed("foo");
+         * @example $output = Strings::getCompressed("foo", 7);
+         * @author Julio María Meca Hansen <jmecahansen@gmail.com>
+         */
+        public static function compress(string $string, int $level = 9): false|string {
+            return gzcompress($string, $level);
+        }
+
+        /**
          * returns the language in which a given string is written
          * @param string $string the input string
          * @param int $mode the return mode for all available results (optional, the closest match will be returned)
